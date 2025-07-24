@@ -1,4 +1,6 @@
 pandas
+zipfile
 openai
 streamlit
-
+numpy
+scipy

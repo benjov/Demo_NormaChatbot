@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import zipfile
 from openai import OpenAI
 import streamlit as st
 import numpy as np
@@ -33,8 +34,15 @@ with st.sidebar:
 st.title("💬 Chatbot")
 st.caption("🚀 un chat que te ayuda para tus actividades diarias")
 
-csv_file_path = "criterios_cofece_tabla_embedding_filtered.csv"
-df_filtered = pd.read_csv(csv_file_path)
+#csv_file_path = "criterios_cofece_tabla_embedding_filtered.csv"
+#df_filtered = pd.read_csv(csv_file_path)
+#
+zip_file_path = "criterios_cofece_tabla_embedding_filtered.zip"
+csv_file_name = "criterios_cofece_tabla_embedding_filtered.csv"
+with zipfile.ZipFile(zip_file_path) as z:
+    with z.open(csv_file_name) as f:
+        df_filtered = pd.read_csv(f)
+#
 df_filtered['ada_embedding'] = df_filtered['ada_embedding'].apply(eval).apply(np.array)
 
 def get_embedding(text, model="text-embedding-3-small"):
