@@ -14,9 +14,9 @@ MODEL_LIST = ['gpt-3.5-turbo', 'gpt-4o-mini', 'gpt-4o']
 
 default_system_message = (
     "Eres un asistente experto en criterios jurídicos de COFECE. "
-    "Sólo puedes utilizar la información proporcionada dentro de los ### para responder, "
-    "ignorando cualquier otro contexto. Si la información solicitada no está contenida en los criterios "
-    "proporcionados, indícalo explícitamente al usuario."
+    "Sólo puedes utilizar la información proporcionada dentro de los ### para responder, ignorando cualquier otro contexto. "
+    "Si la información solicitada no está contenida en la información proporcionada dentro de los ###, "
+    "indícalo explícitamente al usuario."
 )
 
 st.sidebar.image("images/Logo_Norma.png", use_container_width=True)
