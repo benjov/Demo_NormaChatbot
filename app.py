@@ -13,12 +13,12 @@ openai_api_key = st.secrets["OPENAI_API_KEY"]
 MODEL_LIST = [
     'gpt-4o-mini',
     'gpt-4o',
-    'gpt-4',
-    'o1',
-    'o1-mini',
-    'o3',
-    'o3-mini',
-    'o4-mini'
+    'gpt-4'#,
+    #'o1',
+    #'o1-mini',
+    #'o3',
+    #'o3-mini',
+    #'o4-mini'
 ]
 
 default_system_message = (
