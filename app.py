@@ -171,7 +171,7 @@ for msg in st.session_state.messages:
         st.chat_message(msg["role"]).write(msg["content"])
 
 if st.session_state["show_criterios_table"] and st.session_state["criterios_table"] is not None:
-    st.write("Estos son los 10 criterios jurídicos más relevantes encontrados en tu última búsqueda:")
+    st.write("Estos son los 20 criterios jurídicos más relevantes encontrados en tu última búsqueda:")
     st.table(st.session_state["criterios_table"].reset_index(drop=True))
 
 # --- BOTÓN OPCIONAL PARA NUEVA BÚSQUEDA ---
@@ -203,7 +203,7 @@ if prompt := st.chat_input():
             return cosine(embedding, Prompt_Embedding)
         df_filtered['cosine_distance'] = df_filtered['ada_embedding'].apply(calcular_coseno)
         df_sorted = df_filtered.sort_values('cosine_distance', ascending=True)
-        df_top10 = df_sorted[['criterio']].head(10) #df_sorted[['criterio', 'contenido']].head(10)
+        df_top10 = df_sorted[['criterio']].head(20) #df_sorted[['criterio', 'contenido']].head(10)
         st.session_state["criterios_table"] = df_top10
         json_output = df_top10.to_json(orient='records', indent=2, force_ascii=False)
         st.session_state["criterios_json"] = json_output
